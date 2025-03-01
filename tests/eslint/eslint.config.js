@@ -565,6 +565,10 @@ const base = {
   // unicorn
   // enforce a specific parameter name in `catch` clauses
   'unicorn/catch-error-name': [ERROR, { name: ERROR, ignore: [/^err/] }],
+  // enforce consistent assertion style with `node:assert`
+  'unicorn/consistent-assert': ERROR,
+  // prefer passing `Date` directly to the constructor when cloning
+  'unicorn/consistent-date-clone': ERROR,
   // prefer consistent types when spreading a ternary in an array literal
   'unicorn/consistent-empty-array-spread': ERROR,
   // enforce consistent style for element existence checks with `indexOf()`, `lastIndexOf()`, `findIndex()`, and `findLastIndex()`
@@ -579,6 +583,8 @@ const base = {
   'unicorn/filename-case': [ERROR, { case: 'kebabCase' }],
   // enforce specifying rules to disable in `eslint-disable` comments
   'unicorn/no-abusive-eslint-disable': ERROR,
+  // disallow recursive access to `this` within getters and setters
+  'unicorn/no-accessor-recursion': ERROR,
   // enforce combining multiple `Array#push` into one call
   'unicorn/no-array-push-push': ERROR,
   // disallow using `await` in `Promise` method parameters
@@ -587,6 +593,8 @@ const base = {
   'unicorn/no-console-spaces': ERROR,
   // enforce the use of unicode escapes instead of hexadecimal escapes
   'unicorn/no-hex-escape': ERROR,
+  // disallow `instanceof` with built-in objects
+  'unicorn/no-instanceof-builtins': [ERROR, { strategy: 'loose' }],
   // disallow invalid options in `fetch` and `Request`
   'unicorn/no-invalid-fetch-options': ERROR,
   // prevent calling `EventTarget#removeEventListener()` with the result of an expression
@@ -595,6 +603,8 @@ const base = {
   'unicorn/no-length-as-slice-end': ERROR,
   // disallow `if` statements as the only statement in `if` blocks without `else`
   'unicorn/no-lonely-if': ERROR,
+  // disallow named usage of default import and export
+  'unicorn/no-named-default': ERROR,
   // disallow negated expression in equality check
   'unicorn/no-negation-in-equality-check': ERROR,
   // enforce the use of `Buffer.from()` and `Buffer.alloc()` instead of the deprecated `new Buffer()`
@@ -1526,6 +1536,8 @@ const forbidES2024BuiltIns = {
 };
 
 const forbidES2025BuiltIns = {
+  'es/no-dataview-prototype-getfloat16-setfloat16': ERROR,
+  'es/no-float16array': ERROR,
   'es/no-iterator': ERROR,
   'es/no-iterator-prototype-drop': ERROR,
   'es/no-iterator-prototype-every': ERROR,
@@ -1538,6 +1550,7 @@ const forbidES2025BuiltIns = {
   'es/no-iterator-prototype-some': ERROR,
   'es/no-iterator-prototype-take': ERROR,
   'es/no-iterator-prototype-toarray': ERROR,
+  'es/no-math-f16round': ERROR,
   'es/no-promise-try': ERROR,
   'es/no-set-prototype-difference': ERROR,
   'es/no-set-prototype-intersection': ERROR,
@@ -1583,6 +1596,10 @@ const forbidES2023IntlBuiltIns = {
   'es/no-intl-pluralrules-prototype-selectrange': ERROR,
 };
 
+const forbidES2025IntlBuiltIns = {
+  'es/no-intl-durationformat': ERROR,
+};
+
 const forbidSomeES2025Syntax = {
   'es/no-regexp-duplicate-named-capturing-groups': ERROR,
   'es/no-regexp-modifiers': ERROR,
@@ -1613,6 +1630,7 @@ const forbidModernBuiltIns = {
   ...forbidES2021IntlBuiltIns,
   ...forbidES2022IntlBuiltIns,
   ...forbidES2023IntlBuiltIns,
+  ...forbidES2025IntlBuiltIns,
   // prefer using `structuredClone` to create a deep clone
   'unicorn/prefer-structured-clone': OFF,
 };
@@ -1631,6 +1649,8 @@ const polyfills = {
   'regexp/prefer-regexp-test': OFF,
   // shorthand promises should be used
   'sonarjs/prefer-promise-shorthand': OFF,
+  // disallow `instanceof` with built-in objects
+  'unicorn/no-instanceof-builtins': OFF,
 };
 
 const transpiledAndPolyfilled = {
@@ -1710,6 +1730,7 @@ const nodePackages = {
   ...forbidES2021IntlBuiltIns,
   ...forbidES2022IntlBuiltIns,
   ...forbidES2023IntlBuiltIns,
+  ...forbidES2025IntlBuiltIns,
   ...forbidSomeES2025Syntax,
 };
 
@@ -1723,6 +1744,7 @@ const nodeDev = {
   ...forbidES2025BuiltIns,
   'es/no-intl-supportedvaluesof': ERROR,
   ...forbidES2023IntlBuiltIns,
+  ...forbidES2025IntlBuiltIns,
   // ReDoS vulnerability check
   'redos/no-vulnerable': OFF,
   // prefer top-level await
@@ -1763,6 +1785,8 @@ const tests = {
   '@stylistic/js/max-len': [ERROR, { ...base['@stylistic/js/max-len'][1], code: 180 }],
   // enforces the use of `catch()` on un-returned promises
   'promise/catch-or-return': OFF,
+  // disallow `instanceof` with built-in objects
+  'unicorn/no-instanceof-builtins': OFF,
   // prefer catch to `then(a, b)` / `then(null, b)` for handling errors
   'promise/prefer-catch': OFF,
   // shorthand promises should be used
@@ -1928,6 +1952,10 @@ const json = {
 };
 
 const packageJSON = {
+  // reports on unnecessary empty arrays and objects
+  'package-json/no-empty-fields': ERROR,
+  // prevents adding unnecessary / redundant files
+  'package-json/no-redundant-files': ERROR,
   // enforce that package dependencies are unique
   'package-json/unique-dependencies': ERROR,
   // checks existence of local dependencies in the package.json
@@ -1941,6 +1969,12 @@ const packageJSON = {
 const packagesPackageJSON = {
   // enforce either object or shorthand declaration for repository
   'package-json/repository-shorthand': [ERROR, { form: 'object' }],
+  // requires the `author` property to be present
+  'package-json/require-author': ERROR,
+  // requires the `name` property to be present
+  'package-json/require-name': ERROR,
+  // requires the `version` property to be present
+  'package-json/require-version': ERROR,
   // enforce that package names are valid npm package names
   'package-json/valid-name': ERROR,
   // enforce that package.json has all properties required by the npm spec

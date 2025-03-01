@@ -146,6 +146,7 @@ for (PATH of ['core-js-pure', 'core-js']) {
     ok(load(NS, 'math/cosh')(0) === 1);
     ok(load(NS, 'math/expm1')(-Infinity) === -1);
     ok(load(NS, 'math/fround')(0) === 0);
+    ok(load(NS, 'math/f16round')(1.337) === 1.3369140625);
     ok(load(NS, 'math/hypot')(3, 4) === 5);
     ok(load(NS, 'math/imul')(2, 2) === 4);
     ok(load(NS, 'math/log10')(-0) === -Infinity);
@@ -264,6 +265,7 @@ for (PATH of ['core-js-pure', 'core-js']) {
     ok('padEnd' in load(NS, 'string/virtual'));
     ok('raw' in load(NS, 'string'));
     ok(String(load(NS, 'regexp/constructor')('a', 'g')) === '/a/g');
+    ok(load(NS, 'regexp/escape')('10$') === '\\x310\\$');
     ok(load(NS, 'regexp/to-string')(/./g) === '/./g');
     ok(load(NS, 'regexp/flags')(/./g) === 'g');
     ok(typeof load(NS, 'regexp/match') == 'function');
@@ -695,17 +697,13 @@ for (PATH of ['core-js-pure', 'core-js']) {
     ok(typeof load(NS, 'async-iterator/some') == 'function');
     ok(typeof load(NS, 'async-iterator/take') == 'function');
     ok(typeof load(NS, 'async-iterator/to-array') == 'function');
-    load(NS, 'data-view/get-float16');
-    load(NS, 'data-view/set-float16');
     ok(load(NS, 'error/is-error')(new Error()));
     ok(load(NS, 'function/metadata') === null);
     ok(typeof load(NS, 'iterator/to-async') == 'function');
     ok(load(NS, 'json/is-raw-json')({}) === false);
     ok(load(NS, 'json/parse')('[42]', (key, value, { source }) => typeof value == 'number' ? source + source : value)[0] === '4242');
     ok(typeof load(NS, 'json/raw-json')(42) == 'object');
-    ok(load(NS, 'math/f16round')(1.337) === 1.3369140625);
     ok(load(NS, 'math/sum-precise')([1, 2, 3]) === 6);
-    ok(load(NS, 'regexp/escape')('10$') === '\\x310\\$');
     ok(load(NS, 'symbol/dispose'));
     ok(load(NS, 'symbol/metadata'));
     ok(new (load(NS, 'suppressed-error'))(1, 2).suppressed === 2);
@@ -948,6 +946,7 @@ for (PATH of ['core-js-pure', 'core-js']) {
   load('proposals/map-upsert');
   load('proposals/map-upsert-stage-2');
   load('proposals/map-upsert-v4');
+  load('proposals/math-clamp');
   load('proposals/math-extensions');
   load('proposals/math-signbit');
   load('proposals/math-sum');
@@ -1033,6 +1032,8 @@ for (const NS of ['es', 'stable', 'actual', 'full', 'features']) {
   load(NS, 'array-buffer/transfer');
   load(NS, 'array-buffer/transfer-to-fixed-length');
   ok(typeof load(NS, 'data-view') == 'function');
+  load(NS, 'data-view/get-float16');
+  load(NS, 'data-view/set-float16');
   ok(typeof load(NS, 'typed-array/int8-array') == 'function');
   ok(typeof load(NS, 'typed-array/uint8-array') == 'function');
   ok(typeof load(NS, 'typed-array/uint8-clamped-array') == 'function');

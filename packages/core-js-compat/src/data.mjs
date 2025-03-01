@@ -486,6 +486,20 @@ export const data = {
     rhino: '1.7.13',
     safari: '7.1',
   },
+  'es.data-view.get-float16': {
+    bun: '1.1.23',
+    chrome: '135',
+    deno: '1.43',
+    firefox: '129',
+    safari: '18.2',
+  },
+  'es.data-view.set-float16': {
+    bun: '1.1.23',
+    chrome: '135',
+    deno: '1.43',
+    firefox: '129',
+    safari: '18.2',
+  },
   'es.array-buffer.detached': {
     bun: '1.0.19',
     chrome: '114',
@@ -621,78 +635,91 @@ export const data = {
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.drop': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.every': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.filter': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.find': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.flat-map': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.for-each': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.from': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.map': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.reduce': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.some': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.take': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.iterator.to-array': {
     bun: '1.1.31',
     chrome: '122',
     deno: '1.37',
     firefox: '131',
+    safari: '18.4',
   },
   'es.json.stringify': {
     chrome: '72',
@@ -792,6 +819,13 @@ export const data = {
     hermes: '0.1',
     rhino: '1.7.13',
     safari: '7.1',
+  },
+  'es.math.f16round': {
+    bun: '1.1.23',
+    chrome: '135',
+    deno: '1.43',
+    firefox: '129',
+    safari: '18.2',
   },
   'es.math.hypot': {
     // https://bugs.chromium.org/p/v8/issues/detail?id=9546
@@ -1446,6 +1480,11 @@ export const data = {
     chrome: '64',
     firefox: '78',
     safari: '11.1',
+  },
+  'es.regexp.escape': {
+    bun: '1.1.22',
+    firefox: '134',
+    safari: '18.2',
   },
   'es.regexp.dot-all': {
     chrome: '62',
@@ -2180,7 +2219,8 @@ export const data = {
     // https://github.com/oven-sh/bun/issues/9283
     // bun: '1.0.23',
     // reverted in https://issues.chromium.org/issues/42203506#comment25
-    // chrome: '133',
+    chrome: '134', // '133',
+    deno: false,
   },
   'esnext.array.from-async': {
     // https://bugs.webkit.org/show_bug.cgi?id=271703
@@ -2247,8 +2287,10 @@ export const data = {
   // TODO: Remove from `core-js@4`
   'esnext.array-buffer.transfer-to-fixed-length': null,
   'esnext.async-disposable-stack.constructor': {
-    // reverted in https://issues.chromium.org/issues/42203506#comment25
-    // chrome: '133',
+    // added in 133, reverted in 134, https://issues.chromium.org/issues/42203506#comment25
+    // https://github.com/tc39/proposal-explicit-resource-management/issues/256, fixed in early 135
+    chrome: '136',
+    deno: false,
   },
   'esnext.async-iterator.constructor': {
   },
@@ -2290,30 +2332,24 @@ export const data = {
   },
   'esnext.composite-symbol': {
   },
-  'esnext.data-view.get-float16': {
-    bun: '1.1.23',
-    deno: '1.43',
-    firefox: '129',
-    safari: '18.2',
-  },
+  // TODO: Remove from `core-js@4`
+  'esnext.data-view.get-float16': null,
   'esnext.data-view.get-uint8-clamped': {
   },
-  'esnext.data-view.set-float16': {
-    bun: '1.1.23',
-    deno: '1.43',
-    firefox: '129',
-    safari: '18.2',
-  },
+  // TODO: Remove from `core-js@4`
+  'esnext.data-view.set-float16': null,
   'esnext.data-view.set-uint8-clamped': {
   },
   'esnext.disposable-stack.constructor': {
     // reverted in https://issues.chromium.org/issues/42203506#comment25
-    // chrome: '133',
+    chrome: '134', // '133',
+    deno: false,
   },
   'esnext.error.is-error': {
     // early WebKit implementation bug
     // https://github.com/oven-sh/bun/issues/15821
     // bun: '1.1.39',
+    chrome: '134',
   },
   'esnext.function.demethodize': {
   },
@@ -2337,7 +2373,8 @@ export const data = {
   },
   'esnext.iterator.dispose': {
     // reverted in https://issues.chromium.org/issues/42203506#comment25
-    // chrome: '133',
+    chrome: '134', // '133',
+    deno: false,
     firefox: '135',
   },
   // TODO: Remove from `core-js@4`
@@ -2375,18 +2412,21 @@ export const data = {
     chrome: '114',
     // enabled in 132 and disabled in 133 because of regression, https://bugzilla.mozilla.org/show_bug.cgi?id=1925334
     firefox: '135', // '132',
+    safari: '18.4',
   },
   'esnext.json.parse': {
     bun: '1.1.43',
     chrome: '114',
     // enabled in 132 and disabled in 133 because of regression, https://bugzilla.mozilla.org/show_bug.cgi?id=1925334
     firefox: '135', // '132',
+    safari: '18.4',
   },
   'esnext.json.raw-json': {
     bun: '1.1.43',
     chrome: '114',
     // enabled in 132 and disabled in 133 because of regression, https://bugzilla.mozilla.org/show_bug.cgi?id=1925334
     firefox: '135', // '132',
+    safari: '18.4',
   },
   'esnext.map.delete-all': {
   },
@@ -2443,12 +2483,8 @@ export const data = {
   },
   'esnext.math.fscale': {
   },
-  'esnext.math.f16round': {
-    bun: '1.1.23',
-    deno: '1.43',
-    firefox: '129',
-    safari: '18.2',
-  },
+  // TODO: Remove from `core-js@4`
+  'esnext.math.f16round': null,
   // TODO: Remove from `core-js@4`
   'esnext.math.iaddh': {
   },
@@ -2470,6 +2506,7 @@ export const data = {
   'esnext.math.signbit': {
   },
   'esnext.math.sum-precise': {
+    firefox: '137',
   },
   // TODO: Remove from `core-js@4`
   'esnext.math.umulh': {
@@ -2536,11 +2573,8 @@ export const data = {
   // TODO: Remove from `core-js@4`
   'esnext.reflect.metadata': {
   },
-  'esnext.regexp.escape': {
-    bun: '1.1.22',
-    firefox: '134',
-    safari: '18.2',
-  },
+  // TODO: Remove from `core-js@4`
+  'esnext.regexp.escape': null,
   'esnext.set.add-all': {
   },
   'esnext.set.delete-all': {
@@ -2997,6 +3031,8 @@ export const renamed = new Map([
   ['esnext.array-buffer.transfer', 'es.array-buffer.transfer'],
   ['esnext.array-buffer.transfer-to-fixed-length', 'es.array-buffer.transfer-to-fixed-length'],
   ['esnext.aggregate-error', 'es.aggregate-error'],
+  ['esnext.data-view.get-float16', 'es.data-view.get-float16'],
+  ['esnext.data-view.set-float16', 'es.data-view.set-float16'],
   ['esnext.global-this', 'es.global-this'],
   ['esnext.iterator.constructor', 'es.iterator.constructor'],
   ['esnext.iterator.drop', 'es.iterator.drop'],
@@ -3012,12 +3048,14 @@ export const renamed = new Map([
   ['esnext.iterator.take', 'es.iterator.take'],
   ['esnext.iterator.to-array', 'es.iterator.to-array'],
   ['esnext.map.group-by', 'es.map.group-by'],
+  ['esnext.math.f16round', 'es.math.f16round'],
   ['esnext.object.has-own', 'es.object.has-own'],
   ['esnext.object.group-by', 'es.object.group-by'],
   ['esnext.promise.all-settled', 'es.promise.all-settled'],
   ['esnext.promise.any', 'es.promise.any'],
   ['esnext.promise.try', 'es.promise.try'],
   ['esnext.promise.with-resolvers', 'es.promise.with-resolvers'],
+  ['esnext.regexp.escape', 'es.regexp.escape'],
   ['esnext.set.difference.v2', 'es.set.difference.v2'],
   ['esnext.set.intersection.v2', 'es.set.intersection.v2'],
   ['esnext.set.is-disjoint-from.v2', 'es.set.is-disjoint-from.v2'],

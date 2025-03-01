@@ -2,6 +2,41 @@
 ##### Unreleased
 - Nothing
 
+##### [3.41.0 - 2025.03.01](https://github.com/zloirock/core-js/releases/tag/v3.41.0)
+- Changes [v3.40.0...v3.41.0](https://github.com/zloirock/core-js/compare/v3.40.0...v3.41.0) (85 commits)
+- [`RegExp.escape` proposal](https://github.com/tc39/proposal-regex-escaping):
+  - Built-ins:
+    - `RegExp.escape`
+  - Moved to stable ES, [February 2025 TC39 meeting](https://github.com/tc39/proposals/commit/b81fa9bccf4b51f33de0cbe797976a84d05d4b76)
+  - Added `es.` namespace module, `/es/` and `/stable/` namespaces entries
+- [`Float16` proposal](https://github.com/tc39/proposal-regex-escaping):
+  - Built-ins:
+    - `Math.f16round`
+    - `DataView.prototype.getFloat16`
+    - `DataView.prototype.setFloat16`
+  - Moved to stable ES, [February 2025 TC39 meeting](https://github.com/tc39/proposals/commit/b81fa9bccf4b51f33de0cbe797976a84d05d4b76)
+  - Added `es.` namespace modules, `/es/` and `/stable/` namespaces entries
+- [`Math.clamp` stage 1 proposal](https://github.com/CanadaHonk/proposal-math-clamp):
+  - Built-ins:
+    - `Math.clamp`
+  - Extracted from [old `Math` extensions proposal](https://github.com/rwaldron/proposal-math-extensions), [February 2025 TC39 meeting](https://github.com/tc39/proposals/commit/0c24594aab19a50b86d0db7248cac5eb0ae35621)
+  - Added arguments validation
+  - Added new entries
+- Added a workaround of a V8 `AsyncDisposableStack` bug, [tc39/proposal-explicit-resource-management/256](https://github.com/tc39/proposal-explicit-resource-management/issues/256)
+- Compat data improvements:
+  - [`DisposableStack`, `SuppressedError` and `Iterator.prototype[@@dispose]`](https://github.com/tc39/proposal-explicit-resource-management) marked as [shipped from V8 ~ Chromium 134](https://issues.chromium.org/issues/42203506#comment24)
+  - [`Error.isError`](https://github.com/tc39/proposal-is-error) added and marked as [shipped from V8 ~ Chromium 134](https://issues.chromium.org/issues/382104870#comment4)
+  - [`Math.f16round` and `DataView.prototype.{ getFloat16, setFloat16 }`](https://github.com/tc39/proposal-float16array) marked as [shipped from V8 ~ Chromium 135](https://issues.chromium.org/issues/42203953#comment36)
+  - [`Iterator` helpers proposal](https://github.com/tc39/proposal-iterator-helpers) features marked as [shipped from Safari 18.4](https://developer.apple.com/documentation/safari-release-notes/safari-18_4-release-notes#New-Features)
+  - [`JSON.parse` source text access proposal](https://github.com/tc39/proposal-json-parse-with-source) features marked as [shipped from Safari 18.4](https://developer.apple.com/documentation/safari-release-notes/safari-18_4-release-notes#New-Features)
+  - [`Math.sumPrecise`](https://github.com/tc39/proposal-math-sum) marked as shipped from FF137
+  - Added [Deno 2.2](https://github.com/denoland/deno/releases/tag/v2.2.0) compat data and compat data mapping
+    - Explicit Resource Management features are available in V8 ~ Chromium 134, but not in Deno 2.2 based on it
+  - Updated Electron 35 and added Electron 36 compat data mapping
+  - Updated [Opera Android 87](https://forums.opera.com/topic/75836/opera-for-android-87) compat data mapping
+  - Added Samsung Internet 28 compat data mapping
+  - Added Oculus Quest Browser 36 compat data mapping
+
 ##### [3.40.0 - 2025.01.08](https://github.com/zloirock/core-js/releases/tag/v3.40.0)
 - Changes [v3.39.0...v3.40.0](https://github.com/zloirock/core-js/compare/v3.39.0...v3.40.0) (130 commits)
 - Added [`Error.isError` stage 3 proposal](https://github.com/tc39/proposal-is-error):
